@@ -5,6 +5,7 @@
 		<groupId>com.youu.manager</groupId>
 		<artifactId>youu-manager</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../youu-manager/pom.xml</relativePath>
 	</parent>
 	<groupId>com.youu.manager.dao</groupId>
 	<artifactId>youu-manager-dao</artifactId>
