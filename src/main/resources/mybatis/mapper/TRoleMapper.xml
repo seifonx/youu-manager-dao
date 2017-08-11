@@ -5,4 +5,11 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
   </resultMap>
+  
+  <select id="selectRoleByManagerId" resultType="java.lang.String">
+  	SELECT role_name FROM t_role r
+	JOIN t_manager_role mr ON mr.`roleid` = r.`id`
+	WHERE mr.`managerid` = #{manager}
+  </select>
+  
 </mapper>
