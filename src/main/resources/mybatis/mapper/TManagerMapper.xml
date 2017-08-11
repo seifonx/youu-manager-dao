@@ -9,34 +9,4 @@
     <result column="create_time" jdbcType="VARCHAR" property="createTime" />
     <result column="stuts" jdbcType="INTEGER" property="stuts" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_manager
-    where phone_num = #{phoneNum,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TManager">
-    insert into t_manager (phone_num, userpswd, username, 
-      email, create_time, stuts
-      )
-    values (#{phoneNum,jdbcType=INTEGER}, #{userpswd,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, #{stuts,jdbcType=INTEGER}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TManager">
-    update t_manager
-    set userpswd = #{userpswd,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=VARCHAR},
-      stuts = #{stuts,jdbcType=INTEGER}
-    where phone_num = #{phoneNum,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select phone_num, userpswd, username, email, create_time, stuts
-    from t_manager
-    where phone_num = #{phoneNum,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select phone_num, userpswd, username, email, create_time, stuts
-    from t_manager
-  </select>
 </mapper>

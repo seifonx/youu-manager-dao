@@ -5,12 +5,4 @@
     <result column="scenic_id" jdbcType="INTEGER" property="scenicId" />
     <result column="journey_id" jdbcType="INTEGER" property="journeyId" />
   </resultMap>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TJourneySceni">
-    insert into t_journey_sceni (scenic_id, journey_id)
-    values (#{scenicId,jdbcType=INTEGER}, #{journeyId,jdbcType=INTEGER})
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select scenic_id, journey_id
-    from t_journey_sceni
-  </select>
 </mapper>

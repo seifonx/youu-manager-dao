@@ -6,29 +6,4 @@
     <result column="managerid" jdbcType="INTEGER" property="managerid" />
     <result column="roleid" jdbcType="INTEGER" property="roleid" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_manager_role
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TManagerRole">
-    insert into t_manager_role (id, managerid, roleid
-      )
-    values (#{id,jdbcType=INTEGER}, #{managerid,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TManagerRole">
-    update t_manager_role
-    set managerid = #{managerid,jdbcType=INTEGER},
-      roleid = #{roleid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, managerid, roleid
-    from t_manager_role
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, managerid, roleid
-    from t_manager_role
-  </select>
 </mapper>

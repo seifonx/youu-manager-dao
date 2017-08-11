@@ -12,41 +12,4 @@
     <result column="blog_img" jdbcType="VARCHAR" property="blogImg" />
     <result column="blog_content" jdbcType="VARCHAR" property="blogContent" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_blog
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TBlog">
-    insert into t_blog (blog_id, user_id, blog_title, 
-      user_name, blog_date, blog_type, 
-      blog_view, blog_img, blog_content
-      )
-    values (#{blogId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{blogTitle,jdbcType=VARCHAR}, 
-      #{userName,jdbcType=VARCHAR}, #{blogDate,jdbcType=VARCHAR}, #{blogType,jdbcType=VARCHAR}, 
-      #{blogView,jdbcType=INTEGER}, #{blogImg,jdbcType=VARCHAR}, #{blogContent,jdbcType=VARCHAR}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TBlog">
-    update t_blog
-    set user_id = #{userId,jdbcType=INTEGER},
-      blog_title = #{blogTitle,jdbcType=VARCHAR},
-      user_name = #{userName,jdbcType=VARCHAR},
-      blog_date = #{blogDate,jdbcType=VARCHAR},
-      blog_type = #{blogType,jdbcType=VARCHAR},
-      blog_view = #{blogView,jdbcType=INTEGER},
-      blog_img = #{blogImg,jdbcType=VARCHAR},
-      blog_content = #{blogContent,jdbcType=VARCHAR}
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select blog_id, user_id, blog_title, user_name, blog_date, blog_type, blog_view, 
-    blog_img, blog_content
-    from t_blog
-    where blog_id = #{blogId,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select blog_id, user_id, blog_title, user_name, blog_date, blog_type, blog_view, 
-    blog_img, blog_content
-    from t_blog
-  </select>
 </mapper>

@@ -6,14 +6,4 @@
     <result column="adpic_path" jdbcType="VARCHAR" property="adpicPath" />
     <result column="adpic_status" jdbcType="INTEGER" property="adpicStatus" />
   </resultMap>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TAdpic">
-    insert into t_adpic (id, adpic_path, adpic_status
-      )
-    values (#{id,jdbcType=INTEGER}, #{adpicPath,jdbcType=VARCHAR}, #{adpicStatus,jdbcType=INTEGER}
-      )
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, adpic_path, adpic_status
-    from t_adpic
-  </select>
 </mapper>

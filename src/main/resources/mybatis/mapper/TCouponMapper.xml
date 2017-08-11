@@ -11,38 +11,4 @@
     <result column="coupon_status" jdbcType="INTEGER" property="couponStatus" />
     <result column="loginacct" jdbcType="VARCHAR" property="loginacct" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_coupon
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TCoupon">
-    insert into t_coupon (id, coupon_cart, scenic_id, 
-      reduce_money, total_price, valid_time, 
-      coupon_status, loginacct)
-    values (#{id,jdbcType=INTEGER}, #{couponCart,jdbcType=VARCHAR}, #{scenicId,jdbcType=INTEGER}, 
-      #{reduceMoney,jdbcType=DOUBLE}, #{totalPrice,jdbcType=DOUBLE}, #{validTime,jdbcType=VARCHAR}, 
-      #{couponStatus,jdbcType=INTEGER}, #{loginacct,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TCoupon">
-    update t_coupon
-    set coupon_cart = #{couponCart,jdbcType=VARCHAR},
-      scenic_id = #{scenicId,jdbcType=INTEGER},
-      reduce_money = #{reduceMoney,jdbcType=DOUBLE},
-      total_price = #{totalPrice,jdbcType=DOUBLE},
-      valid_time = #{validTime,jdbcType=VARCHAR},
-      coupon_status = #{couponStatus,jdbcType=INTEGER},
-      loginacct = #{loginacct,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, coupon_cart, scenic_id, reduce_money, total_price, valid_time, coupon_status, 
-    loginacct
-    from t_coupon
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, coupon_cart, scenic_id, reduce_money, total_price, valid_time, coupon_status, 
-    loginacct
-    from t_coupon
-  </select>
 </mapper>

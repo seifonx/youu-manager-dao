@@ -6,29 +6,4 @@
     <result column="roleid" jdbcType="INTEGER" property="roleid" />
     <result column="permissid" jdbcType="INTEGER" property="permissid" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_role_permiss
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TRolePermiss">
-    insert into t_role_permiss (id, roleid, permissid
-      )
-    values (#{id,jdbcType=INTEGER}, #{roleid,jdbcType=INTEGER}, #{permissid,jdbcType=INTEGER}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TRolePermiss">
-    update t_role_permiss
-    set roleid = #{roleid,jdbcType=INTEGER},
-      permissid = #{permissid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, roleid, permissid
-    from t_role_permiss
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, roleid, permissid
-    from t_role_permiss
-  </select>
 </mapper>

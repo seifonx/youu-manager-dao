@@ -8,13 +8,4 @@ import java.util.List;
 import javax.persistence.Table;
 
 public interface TUserMapper extends Mapper<TUser>{
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(TUser record);
-
-    TUser selectByPrimaryKey(Integer id);
-
-    List<TUser> selectAll();
-
-    int updateByPrimaryKey(TUser record);
 }

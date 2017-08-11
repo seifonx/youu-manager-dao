@@ -8,31 +8,4 @@
     <result column="date" jdbcType="TIMESTAMP" property="date" />
     <result column="describe" jdbcType="VARCHAR" property="describe" />
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from message_model
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.MessageModel">
-    insert into message_model (id, managerid, model_conten, 
-      date, describe)
-    values (#{id,jdbcType=INTEGER}, #{managerid,jdbcType=INTEGER}, #{modelConten,jdbcType=VARCHAR}, 
-      #{date,jdbcType=TIMESTAMP}, #{describe,jdbcType=VARCHAR})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.MessageModel">
-    update message_model
-    set managerid = #{managerid,jdbcType=INTEGER},
-      model_conten = #{modelConten,jdbcType=VARCHAR},
-      date = #{date,jdbcType=TIMESTAMP},
-      describe = #{describe,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, managerid, model_conten, date, describe
-    from message_model
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, managerid, model_conten, date, describe
-    from message_model
-  </select>
 </mapper>

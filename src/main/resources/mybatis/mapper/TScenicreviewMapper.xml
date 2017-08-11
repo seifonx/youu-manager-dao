@@ -8,14 +8,4 @@
     <result column="scenic_review" jdbcType="VARCHAR" property="scenicReview" />
     <result column="review_date" jdbcType="VARCHAR" property="reviewDate" />
   </resultMap>
-  <insert id="insert" parameterType="com.youu.youu.manager.bean.TScenicreview">
-    insert into t_scenicreview (id, scenic_name, user_name, 
-      scenic_review, review_date)
-    values (#{id,jdbcType=INTEGER}, #{scenicName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{scenicReview,jdbcType=VARCHAR}, #{reviewDate,jdbcType=VARCHAR})
-  </insert>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select id, scenic_name, user_name, scenic_review, review_date
-    from t_scenicreview
-  </select>
 </mapper>
