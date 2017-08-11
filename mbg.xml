@@ -4,11 +4,17 @@
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-	<context id="DB2Tables" targetRuntime="MyBatis3">
+	<context id="DB2Tables" targetRuntime="MyBatis3Simple">
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+<!-- 		<plugin type="com.github.abel533.generator.MapperPlugin"> -->
+<!-- 			<property name="mappers" value="com.github.abel533.mapper.Mapper" /> -->
+<!-- 		</plugin> -->
+
+		<!-- 注解 -->
 		<commentGenerator>
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
-		
+
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://139.159.229.19:3306/youu" userId="youu"
 			password="youu">
@@ -39,7 +45,23 @@
 
 		<!-- 只要是数据库对应的pojo，我们都以T开头 -->
 		<!-- 指定要逆向的每一张表,用户表 -->
-		<table tableName="test" domainObjectName="Ttest"></table>
-
+		<!-- <table tableName="test" domainObjectName="Ttest"></table> -->
+		<table tableName="t_adpic" domainObjectName="TAdpic"></table>
+		<table tableName="message_model" domainObjectName="MessageModel"></table>
+		<table tableName="message" domainObjectName="Message"></table>
+		<table tableName="t_blog" domainObjectName="TBlog"></table>
+		<table tableName="t_coupon" domainObjectName="TCoupon"></table>
+		<table tableName="t_journey_plan" domainObjectName="TJourneyPlan"></table>
+		<table tableName="t_journey_sceni" domainObjectName="TJourneySceni"></table>
+		<table tableName="t_location" domainObjectName="TLocation"></table>
+		<table tableName="t_manager" domainObjectName="TManager"></table>
+		<table tableName="t_manager_role" domainObjectName="TManagerRole"></table>
+		<table tableName="t_permiss" domainObjectName="TPermiss"></table>
+		<table tableName="t_role" domainObjectName="TRole"></table>
+		<table tableName="t_role_permiss" domainObjectName="TRolePermiss"></table>
+		<table tableName="t_scenic_ticket" domainObjectName="TScenicTicket"></table>
+		<table tableName="t_scenicdetails" domainObjectName="TScenicdetails"></table>
+		<table tableName="t_scenicreview" domainObjectName="TScenicreview"></table>
+		<table tableName="t_user" domainObjectName="TUser"></table>
 	</context>
 </generatorConfiguration>

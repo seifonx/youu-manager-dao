@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TScenicreviewMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TScenicreview">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="scenic_name" jdbcType="VARCHAR" property="scenicName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="scenic_review" jdbcType="VARCHAR" property="scenicReview" />
+    <result column="review_date" jdbcType="VARCHAR" property="reviewDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TScenicreview">
+    insert into t_scenicreview (id, scenic_name, user_name, 
+      scenic_review, review_date)
+    values (#{id,jdbcType=INTEGER}, #{scenicName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{scenicReview,jdbcType=VARCHAR}, #{reviewDate,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, scenic_name, user_name, scenic_review, review_date
+    from t_scenicreview
+  </select>
+</mapper>

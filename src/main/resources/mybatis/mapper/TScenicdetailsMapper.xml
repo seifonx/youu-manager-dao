@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TScenicdetailsMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TScenicdetails">
+    <id column="scenic_id" jdbcType="INTEGER" property="scenicId" />
+    <result column="scenic_name" jdbcType="VARCHAR" property="scenicName" />
+    <result column="scenic_location" jdbcType="VARCHAR" property="scenicLocation" />
+    <result column="scenic_details" jdbcType="VARCHAR" property="scenicDetails" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
+    <result column="ticket_price" jdbcType="DOUBLE" property="ticketPrice" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_scenicdetails
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TScenicdetails">
+    insert into t_scenicdetails (scenic_id, scenic_name, scenic_location, 
+      scenic_details, province, city, 
+      picture_url, ticket_price)
+    values (#{scenicId,jdbcType=INTEGER}, #{scenicName,jdbcType=VARCHAR}, #{scenicLocation,jdbcType=VARCHAR}, 
+      #{scenicDetails,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{pictureUrl,jdbcType=VARCHAR}, #{ticketPrice,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TScenicdetails">
+    update t_scenicdetails
+    set scenic_name = #{scenicName,jdbcType=VARCHAR},
+      scenic_location = #{scenicLocation,jdbcType=VARCHAR},
+      scenic_details = #{scenicDetails,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      ticket_price = #{ticketPrice,jdbcType=DOUBLE}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select scenic_id, scenic_name, scenic_location, scenic_details, province, city, picture_url, 
+    ticket_price
+    from t_scenicdetails
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select scenic_id, scenic_name, scenic_location, scenic_details, province, city, picture_url, 
+    ticket_price
+    from t_scenicdetails
+  </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TAdpicMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TAdpic">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="adpic_path" jdbcType="VARCHAR" property="adpicPath" />
+    <result column="adpic_status" jdbcType="INTEGER" property="adpicStatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TAdpic">
+    insert into t_adpic (id, adpic_path, adpic_status
+      )
+    values (#{id,jdbcType=INTEGER}, #{adpicPath,jdbcType=VARCHAR}, #{adpicStatus,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, adpic_path, adpic_status
+    from t_adpic
+  </select>
+</mapper>

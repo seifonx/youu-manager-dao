@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TCouponMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TCoupon">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="coupon_cart" jdbcType="VARCHAR" property="couponCart" />
+    <result column="scenic_id" jdbcType="INTEGER" property="scenicId" />
+    <result column="reduce_money" jdbcType="DOUBLE" property="reduceMoney" />
+    <result column="total_price" jdbcType="DOUBLE" property="totalPrice" />
+    <result column="valid_time" jdbcType="VARCHAR" property="validTime" />
+    <result column="coupon_status" jdbcType="INTEGER" property="couponStatus" />
+    <result column="loginacct" jdbcType="VARCHAR" property="loginacct" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_coupon
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TCoupon">
+    insert into t_coupon (id, coupon_cart, scenic_id, 
+      reduce_money, total_price, valid_time, 
+      coupon_status, loginacct)
+    values (#{id,jdbcType=INTEGER}, #{couponCart,jdbcType=VARCHAR}, #{scenicId,jdbcType=INTEGER}, 
+      #{reduceMoney,jdbcType=DOUBLE}, #{totalPrice,jdbcType=DOUBLE}, #{validTime,jdbcType=VARCHAR}, 
+      #{couponStatus,jdbcType=INTEGER}, #{loginacct,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TCoupon">
+    update t_coupon
+    set coupon_cart = #{couponCart,jdbcType=VARCHAR},
+      scenic_id = #{scenicId,jdbcType=INTEGER},
+      reduce_money = #{reduceMoney,jdbcType=DOUBLE},
+      total_price = #{totalPrice,jdbcType=DOUBLE},
+      valid_time = #{validTime,jdbcType=VARCHAR},
+      coupon_status = #{couponStatus,jdbcType=INTEGER},
+      loginacct = #{loginacct,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, coupon_cart, scenic_id, reduce_money, total_price, valid_time, coupon_status, 
+    loginacct
+    from t_coupon
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, coupon_cart, scenic_id, reduce_money, total_price, valid_time, coupon_status, 
+    loginacct
+    from t_coupon
+  </select>
+</mapper>

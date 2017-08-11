@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TScenicTicketMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TScenicTicket">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ticket_cart" jdbcType="VARCHAR" property="ticketCart" />
+    <result column="scenic_id" jdbcType="INTEGER" property="scenicId" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="phone_num" jdbcType="INTEGER" property="phoneNum" />
+    <result column="pay_status" jdbcType="INTEGER" property="payStatus" />
+    <result column="pay_time" jdbcType="VARCHAR" property="payTime" />
+    <result column="order_time" jdbcType="VARCHAR" property="orderTime" />
+    <result column="loginacct" jdbcType="VARCHAR" property="loginacct" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="valid_time" jdbcType="VARCHAR" property="validTime" />
+    <result column="order_money" jdbcType="DOUBLE" property="orderMoney" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_scenic_ticket
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TScenicTicket">
+    insert into t_scenic_ticket (id, ticket_cart, scenic_id, 
+      id_card, phone_num, pay_status, 
+      pay_time, order_time, loginacct, 
+      order_id, valid_time, order_money
+      )
+    values (#{id,jdbcType=INTEGER}, #{ticketCart,jdbcType=VARCHAR}, #{scenicId,jdbcType=INTEGER}, 
+      #{idCard,jdbcType=VARCHAR}, #{phoneNum,jdbcType=INTEGER}, #{payStatus,jdbcType=INTEGER}, 
+      #{payTime,jdbcType=VARCHAR}, #{orderTime,jdbcType=VARCHAR}, #{loginacct,jdbcType=VARCHAR}, 
+      #{orderId,jdbcType=VARCHAR}, #{validTime,jdbcType=VARCHAR}, #{orderMoney,jdbcType=DOUBLE}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TScenicTicket">
+    update t_scenic_ticket
+    set ticket_cart = #{ticketCart,jdbcType=VARCHAR},
+      scenic_id = #{scenicId,jdbcType=INTEGER},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      phone_num = #{phoneNum,jdbcType=INTEGER},
+      pay_status = #{payStatus,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=VARCHAR},
+      order_time = #{orderTime,jdbcType=VARCHAR},
+      loginacct = #{loginacct,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      valid_time = #{validTime,jdbcType=VARCHAR},
+      order_money = #{orderMoney,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, ticket_cart, scenic_id, id_card, phone_num, pay_status, pay_time, order_time, 
+    loginacct, order_id, valid_time, order_money
+    from t_scenic_ticket
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, ticket_cart, scenic_id, id_card, phone_num, pay_status, pay_time, order_time, 
+    loginacct, order_id, valid_time, order_money
+    from t_scenic_ticket
+  </select>
+</mapper>

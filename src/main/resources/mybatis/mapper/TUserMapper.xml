@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.youu.youu.manager.dao.TUserMapper">
+  <resultMap id="BaseResultMap" type="com.youu.youu.manager.bean.TUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="loginacct" jdbcType="VARCHAR" property="loginacct" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone_num" jdbcType="INTEGER" property="phoneNum" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="login_status" jdbcType="INTEGER" property="loginStatus" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="now_date" jdbcType="VARCHAR" property="nowDate" />
+    <result column="last_date" jdbcType="VARCHAR" property="lastDate" />
+    <result column="blog_num" jdbcType="INTEGER" property="blogNum" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="relative_file_path" jdbcType="VARCHAR" property="relativeFilePath" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.youu.youu.manager.bean.TUser">
+    insert into t_user (id, loginacct, username, 
+      password, email, phone_num, 
+      gender, login_status, token, 
+      create_date, now_date, last_date, 
+      blog_num, level, relative_file_path, 
+      id_card)
+    values (#{id,jdbcType=INTEGER}, #{loginacct,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phoneNum,jdbcType=INTEGER}, 
+      #{gender,jdbcType=INTEGER}, #{loginStatus,jdbcType=INTEGER}, #{token,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=VARCHAR}, #{nowDate,jdbcType=VARCHAR}, #{lastDate,jdbcType=VARCHAR}, 
+      #{blogNum,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, #{relativeFilePath,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.youu.youu.manager.bean.TUser">
+    update t_user
+    set loginacct = #{loginacct,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone_num = #{phoneNum,jdbcType=INTEGER},
+      gender = #{gender,jdbcType=INTEGER},
+      login_status = #{loginStatus,jdbcType=INTEGER},
+      token = #{token,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=VARCHAR},
+      now_date = #{nowDate,jdbcType=VARCHAR},
+      last_date = #{lastDate,jdbcType=VARCHAR},
+      blog_num = #{blogNum,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      relative_file_path = #{relativeFilePath,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, loginacct, username, password, email, phone_num, gender, login_status, 
+    token, create_date, now_date, last_date, blog_num, level, relative_file_path, id_card
+    from t_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, loginacct, username, password, email, phone_num, gender, login_status, 
+    token, create_date, now_date, last_date, blog_num, level, relative_file_path, id_card
+    from t_user
+  </select>
+</mapper>
