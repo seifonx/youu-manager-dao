@@ -45,7 +45,6 @@
 
 		<!-- 只要是数据库对应的pojo，我们都以T开头 -->
 		<!-- 指定要逆向的每一张表,用户表 -->
-		<!-- <table tableName="test" domainObjectName="Ttest"></table> -->
 		<table tableName="t_adpic" domainObjectName="TAdpic"></table>
 		<table tableName="message_model" domainObjectName="MessageModel"></table>
 		<table tableName="message" domainObjectName="Message"></table>
